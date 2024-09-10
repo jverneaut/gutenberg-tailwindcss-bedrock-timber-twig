@@ -6,7 +6,19 @@ module.exports = {
       delete view.style;
       delete view.editorStyle;
 
-      return view;
+      return {
+        ...view,
+        supports: {
+          html: false,
+          align: ['full'],
+        },
+        attributes: {
+          align: {
+            type: 'string',
+            default: 'full',
+          },
+        },
+      };
     },
     render: 'file:./render.twig',
   },
