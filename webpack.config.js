@@ -195,6 +195,7 @@ Encore
       return middlewares;
     };
 
+    options.allowedHosts = process.env.WP_HOME;
     options.hot = true;
     options.devMiddleware = { writeToDisk: true };
     options.watchFiles = [
