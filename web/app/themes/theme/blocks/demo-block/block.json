@@ -1,0 +1,25 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "custom/demo-block",
+  "version": "0.1.0",
+  "title": "Demo Block",
+  "category": "theme",
+  "attributes": {
+    "align": {
+      "type": "string",
+      "default": "full"
+    },
+    "content": {
+      "type": "string",
+      "default": "Demo Block"
+    }
+  },
+  "supports": {
+    "html": false,
+    "align": ["full"]
+  },
+  "textdomain": "demo-block",
+  "editorScript": "file:./index.js",
+  "render": "file:./render.twig"
+}
