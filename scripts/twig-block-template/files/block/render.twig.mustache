@@ -1,4 +1,11 @@
-{{=<% %>=}}<section {{ function('get_block_wrapper_attributes') }}><%={{ }}=%>
+{{=<% %>=}}<section {{
+  function(
+    'get_block_wrapper_attributes',
+    {
+      class: 'alignfull'
+    }
+  )
+  }}><%={{ }}=%>
   <p>
     {{title}}
   </p>
