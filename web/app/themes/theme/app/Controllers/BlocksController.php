@@ -9,6 +9,7 @@ class BlocksController
     public function __construct()
     {
         $this->registerBlocks();
+        $this->setupTwigBlocksRenderer();
     }
 
     private function registerBlocks()
@@ -20,5 +21,33 @@ class BlocksController
                 register_block_type($block);
             }
         });
+    }
+
+    private function setupTwigBlocksRenderer()
+    {
+        add_filter('block_type_metadata_settings', function ($settings, $metadata) {
+            if (! empty($metadata['render'])) {
+                $template_path = wp_normalize_path(
+                    realpath(
+                        dirname($metadata['file']) . '/' .
+                        remove_block_asset_path_prefix($metadata['render'])
+                    )
+                );
+
+                if (str_ends_with($template_path, '.twig')) {
+                    $settings['render_callback'] = function ($attributes, $content, $block) use ($template_path) {
+                        $content = Timber::compile($template_path, [
+                            'attributes' => $attributes,
+                            'content' => $content,
+                            'block' => $block,
+                        ]);
+
+                        return $content;
+                    };
+                };
+            };
+
+            return $settings;
+        }, 10, 2);
     }
 }
