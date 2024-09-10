@@ -7,6 +7,7 @@ const path = require('path');
 const CopyPlugin = require('copy-webpack-plugin');
 const DependencyExtractionWebpackPlugin = require('@wordpress/dependency-extraction-webpack-plugin');
 const chokidar = require('chokidar');
+const CleanTerminalPlugin = require('clean-terminal-webpack-plugin');
 
 // Manually configure the runtime environment if not already configured yet by the "encore" command.
 // It's useful when you use tools that rely on webpack.config.js file.
@@ -202,7 +203,9 @@ Encore
       './web/app/themes/theme/assets/**/*.scss',
       './web/app/themes/theme/assets/**/*.js',
     ];
-  });
+  })
+
+  .addPlugin(new CleanTerminalPlugin());
 
 // uncomment to get integrity="..." attributes on your script & link tags
 // requires WebpackEncoreBundle 1.4 or higher
