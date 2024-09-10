@@ -1,9 +1,12 @@
+require('dotenv').config();
+
 const Encore = require('@symfony/webpack-encore');
 const glob = require('glob');
 const fs = require('fs');
 const path = require('path');
 const CopyPlugin = require('copy-webpack-plugin');
 const DependencyExtractionWebpackPlugin = require('@wordpress/dependency-extraction-webpack-plugin');
+const chokidar = require('chokidar');
 
 // Manually configure the runtime environment if not already configured yet by the "encore" command.
 // It's useful when you use tools that rely on webpack.config.js file.
@@ -15,7 +18,7 @@ const blocks = glob
   .sync('./web/app/themes/theme/blocks/**/block.json')
   .reduce((acc, curr) => {
     const json = JSON.parse(
-      fs.readFileSync(path.join(__dirname, curr), 'utf8'),
+      fs.readFileSync(path.join(__dirname, curr), 'utf8')
     );
 
     const base = curr.replace('block.json', '');
@@ -61,11 +64,11 @@ const blocks = glob
             from: path.join(
               __dirname,
               base,
-              json[property].replace('file:', ''),
+              json[property].replace('file:', '')
             ),
             to: path.join(
               `blocks/${json.name}`,
-              json[property].replace('file:', ''),
+              json[property].replace('file:', '')
             ),
           });
         } else {
@@ -107,8 +110,8 @@ Encore
           ...acc,
           ...curr,
         }),
-        {},
-      ),
+        {}
+      )
   )
 
   // enables the Symfony UX Stimulus bridge (used in assets/bootstrap.js)
@@ -161,10 +164,44 @@ Encore
             .map((block) => block.files)
             .flat(),
         })
-      : { apply: () => {} },
+      : { apply: () => {} }
   )
 
-  .addPlugin(new DependencyExtractionWebpackPlugin());
+  .addPlugin(new DependencyExtractionWebpackPlugin())
+
+  .configureDevServerOptions((options) => {
+    options.proxy = {
+      '/': {
+        index: '',
+        context: () => true,
+        target: process.env.WP_HOME,
+        changeOrigin: true,
+        secure: false,
+      },
+    };
+
+    options.setupMiddlewares = (middlewares, devServer) => {
+      const watcher = chokidar.watch([
+        './web/app/themes/theme/**/*.twig',
+        './web/app/themes/theme/**/*.php',
+      ]);
+
+      watcher.on('all', function () {
+        for (const ws of devServer.webSocketServer.clients) {
+          ws.send('{"type": "static-changed"}');
+        }
+      });
+
+      return middlewares;
+    };
+
+    options.hot = true;
+    options.devMiddleware = { writeToDisk: true };
+    options.watchFiles = [
+      './web/app/themes/theme/assets/**/*.scss',
+      './web/app/themes/theme/assets/**/*.js',
+    ];
+  });
 
 // uncomment to get integrity="..." attributes on your script & link tags
 // requires WebpackEncoreBundle 1.4 or higher
