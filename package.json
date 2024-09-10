@@ -14,10 +14,19 @@
   "license": "ISC",
   "devDependencies": {
     "@symfony/webpack-encore": "^4.7.0",
+    "@wordpress/dependency-extraction-webpack-plugin": "^6.7.0",
+    "copy-webpack-plugin": "^12.0.2",
+    "core-js": "^3.38.1",
+    "glob": "^11.0.0",
     "prettier": "^3.3.3",
     "prettier-plugin-twig-melody": "^0.4.6",
     "sass": "^1.78.0",
     "sass-loader": "^14.2.1",
     "webpack-notifier": "^1.15.0"
+  },
+  "dependencies": {
+    "@10up/block-components": "^1.19.2",
+    "@wordpress/block-editor": "^14.2.0",
+    "@wordpress/blocks": "^13.7.0"
   }
 }
