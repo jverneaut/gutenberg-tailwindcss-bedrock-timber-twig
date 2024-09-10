@@ -12,7 +12,7 @@
   },
   "keywords": [],
   "author": "Julien VERNEAUT",
-  "license": "ISC",
+  "license": "MIT",
   "devDependencies": {
     "@symfony/webpack-encore": "^4.7.0",
     "@wordpress/dependency-extraction-webpack-plugin": "^6.7.0",
