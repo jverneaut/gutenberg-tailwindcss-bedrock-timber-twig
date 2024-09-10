@@ -1,0 +1,23 @@
+{
+  "name": "gutenberg-tailwindcss-bedrock-timber-twig",
+  "version": "1.0.0",
+  "description": "Gutenberg TailwindCSS Bedrock Timber Twig starter project template",
+  "main": "web/app/themes/theme/assets/js/app.js",
+  "scripts": {
+    "dev-server": "encore dev-server",
+    "dev": "encore dev",
+    "watch": "encore dev --watch",
+    "build": "encore production --progress"
+  },
+  "keywords": [],
+  "author": "Julien VERNEAUT",
+  "license": "ISC",
+  "devDependencies": {
+    "@symfony/webpack-encore": "^4.7.0",
+    "prettier": "^3.3.3",
+    "prettier-plugin-twig-melody": "^0.4.6",
+    "sass": "^1.78.0",
+    "sass-loader": "^14.2.1",
+    "webpack-notifier": "^1.15.0"
+  }
+}

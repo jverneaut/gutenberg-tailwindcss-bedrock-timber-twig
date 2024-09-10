@@ -25,3 +25,9 @@ web/.htaccess
 
 # WP-CLI
 wp-cli.local.yml
+
+# Node
+/node_modules
+
+# Build artifacts
+/web/app/themes/theme/public
