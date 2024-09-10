@@ -14,7 +14,8 @@ class ThemeController
     {
         $supportedFeatures = [
           'title-tag',
-          'menus'
+          'menus',
+          'editor-styles'
         ];
 
         foreach ($supportedFeatures as $supportedFeature) {
@@ -27,6 +28,10 @@ class ThemeController
         add_action('wp_enqueue_scripts', function () {
             wp_enqueue_style('theme-styles', get_template_directory_uri() . '/public/app.css');
             wp_enqueue_script('theme-scripts', get_template_directory_uri() . '/public/app.js', [], null, true);
+        });
+
+        add_action('enqueue_block_editor_assets', function () {
+            add_editor_style('public/app.css');
         });
     }
 }
