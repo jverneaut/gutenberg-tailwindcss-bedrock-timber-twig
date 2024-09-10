@@ -86,7 +86,8 @@
   "scripts": {
     "test": [
       "phpcs"
-    ]
+    ],
+    "create-block": "scripts/create-block.sh"
   },
   "autoload": {
     "psr-4": {
