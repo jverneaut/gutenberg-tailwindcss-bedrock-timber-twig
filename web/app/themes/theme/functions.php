@@ -2,18 +2,19 @@
 
 require_once __DIR__ . '/../../../../vendor/autoload.php';
 
-use Timber\Timber;
+use App\Bootstrap;
 
-use App\Controllers\ThemeController;
-use App\Controllers\TwigController;
-use App\Controllers\BlocksController;
-use App\Controllers\ErrorHandlerController;
+use Symfony\Component\DependencyInjection\ContainerBuilder;
+use Symfony\Component\DependencyInjection\Loader\YamlFileLoader;
+use Symfony\Component\Config\FileLocator;
 
-Timber::init();
+$container = new ContainerBuilder();
 
-add_action('after_setup_theme', function () {
-    new ThemeController();
-    new TwigController();
-    new BlocksController();
-    new ErrorHandlerController();
+$loader = new YamlFileLoader($container, new FileLocator(__DIR__));
+$loader->load('services.yml');
+
+$container->compile();
+
+add_action('after_setup_theme', function () use ($container) {
+    $container->get(Bootstrap::class);
 });

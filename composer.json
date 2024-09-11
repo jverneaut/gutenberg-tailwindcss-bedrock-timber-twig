@@ -53,7 +53,10 @@
     "symfony/twig-bridge": "^6.4",
     "symfony/var-dumper": "^6.4",
     "symfony/error-handler": "^6.4",
-    "twig/html-extra": "^3.13"
+    "twig/html-extra": "^3.13",
+    "symfony/dependency-injection": "^6.4",
+    "symfony/config": "^6.4",
+    "symfony/yaml": "^6.4"
   },
   "require-dev": {
     "squizlabs/php_codesniffer": "^3.7.1",
