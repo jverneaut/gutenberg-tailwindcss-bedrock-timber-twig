@@ -8,6 +8,7 @@ module.exports = {
 
       return {
         ...view,
+        example: {}, // Required to display a block preview
         supports: {
           html: false,
           align: ['full'],

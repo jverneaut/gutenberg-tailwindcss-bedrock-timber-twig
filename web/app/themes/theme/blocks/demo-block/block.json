@@ -5,6 +5,7 @@
   "version": "0.1.0",
   "title": "Demo Block",
   "category": "theme",
+  "example": {},
   "attributes": {
     "align": {
       "type": "string",
