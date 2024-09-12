@@ -36,11 +36,16 @@ class BlocksController
 
                 if (str_ends_with($template_path, '.twig')) {
                     $settings['render_callback'] = function ($attributes, $content, $block) use ($template_path) {
-                        $content = Timber::compile($template_path, [
-                            'attributes' => $attributes,
-                            'content' => $content,
-                            'block' => $block,
-                        ]);
+                        $context = Timber::context();
+
+                        $content = Timber::compile($template_path, array_merge(
+                            $context,
+                            [
+                                'attributes' => $attributes,
+                                'content' => $content,
+                                'block' => $block,
+                            ]
+                        ));
 
                         return $content;
                     };
