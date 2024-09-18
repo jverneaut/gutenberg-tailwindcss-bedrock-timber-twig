@@ -9,7 +9,7 @@
       "\tonChange={(${1:content}) => setAttributes({${1:content}})}",
       "/>"
     ],
-    "scope": "javascript,typescript"
+    "scope": "javascript,typescript,javascriptreact"
   },
 
   "Image Component": {
@@ -21,7 +21,7 @@
       "\tclassName=\"$2\"",
       "/>"
     ],
-    "scope": "javascript,typescript"
+    "scope": "javascript,typescript,javascriptreact"
   },
 
   "Link Component": {
@@ -40,6 +40,6 @@
       "\tclassName=\"$3\"",
       "/>"
     ],
-    "scope": "javascript,typescript"
+    "scope": "javascript,typescript,javascriptreact"
   }
 }
