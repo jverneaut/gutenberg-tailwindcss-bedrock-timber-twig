@@ -1,0 +1,45 @@
+{
+  "RichText Component": {
+    "prefix": "wptext",
+    "body": [
+      "<RichText",
+      "\ttagName=\"${2:p}\"",
+      "\tclassName=\"$3\"",
+      "\tvalue={attributes.${1:content}}",
+      "\tonChange={(${1:content}) => setAttributes({${1:content}})}",
+      "/>"
+    ],
+    "scope": "javascript,typescript"
+  },
+
+  "Image Component": {
+    "prefix": "wpimage",
+    "body": [
+      "<Image",
+      "\tid={attributes.${1:image_id}}",
+      "\tonSelect={(image) => setAttributes({ ${1:image_id}: image.id })}",
+      "\tclassName=\"$2\"",
+      "/>"
+    ],
+    "scope": "javascript,typescript"
+  },
+
+  "Link Component": {
+    "prefix": "wplink",
+    "body": [
+      "<Link",
+      "\turl={attributes.${1:link_url}}",
+      "\tvalue={attributes.${2:link_title}}",
+      "\tonLinkChange={(link) =>",
+      "\t\tsetAttributes({",
+      "\t\t\t${2:link_title}: link.title,",
+      "\t\t\t${1:link_url}: link.url,",
+      "\t\t})",
+      "\t}",
+      "\tonTextChange={(${2:link_title}) => setAttributes({ ${2:link_title} })}",
+      "\tclassName=\"$3\"",
+      "/>"
+    ],
+    "scope": "javascript,typescript"
+  }
+}
