@@ -4,7 +4,7 @@
     "body": [
       "<RichText",
       "\ttagName=\"${2:p}\"",
-      "\tclassName=\"${3:$TM_SELECTED_TEXT}\"",
+      "\tclassName=\"${3:$CLIPBOARD}\"",
       "\tvalue={attributes.${1:content}}",
       "\tonChange={(${1:content}) => setAttributes({${1:content}})}",
       "/>"
@@ -18,7 +18,7 @@
       "<Image",
       "\tid={attributes.${1:image_id}}",
       "\tonSelect={(image) => setAttributes({ ${1:image_id}: image.id })}",
-      "\tclassName=\"${2:$TM_SELECTED_TEXT}\"",
+      "\tclassName=\"${2:$CLIPBOARD}\"",
       "/>"
     ],
     "scope": "javascript,typescript,javascriptreact"
@@ -37,7 +37,7 @@
       "\t\t})",
       "\t}",
       "\tonTextChange={(${2:link_title}) => setAttributes({ ${2:link_title} })}",
-      "\tclassName=\"${3:$TM_SELECTED_TEXT}\"",
+      "\tclassName=\"${3:$CLIPBOARD}\"",
       "/>"
     ],
     "scope": "javascript,typescript,javascriptreact"
