@@ -150,7 +150,12 @@ Encore
   })
 
   // enables Sass/SCSS support
-  .enableSassLoader()
+  .enableSassLoader((options) => ({
+    ...options,
+    sassOptions: {
+      silenceDeprecations: ['legacy-js-api'],
+    },
+  }))
   .enablePostCssLoader()
   // uncomment if you use TypeScript
   //.enableTypeScriptLoader()
