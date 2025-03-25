@@ -13,6 +13,7 @@ class TwigController
     {
         $this->setupDumpExtension();
         $this->setupHTMLExtra();
+        $this->addWrapperAttributesAlias();
     }
 
     private function setupDumpExtension()
@@ -31,6 +32,17 @@ class TwigController
     {
         add_filter('timber/twig', function (\Twig\Environment $twig) {
             $twig->addExtension(new HtmlExtension());
+
+            return $twig;
+        });
+    }
+
+    private function addWrapperAttributesAlias()
+    {
+        add_filter('timber/twig', function (\Twig\Environment $twig) {
+            $twig->addFunction(new \Twig\TwigFunction('wrapper_attributes', function ($args = []) {
+                return get_block_wrapper_attributes($args);
+            }));
 
             return $twig;
         });
