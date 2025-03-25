@@ -1,0 +1,6 @@
+@import 'tailwindcss' source(none);
+@import './global.css';
+
+@source "../";
+@source "../../blocks";
+@source "../../views";

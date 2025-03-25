@@ -150,12 +150,7 @@ Encore
   })
 
   // enables Sass/SCSS support
-  .enableSassLoader((options) => ({
-    ...options,
-    sassOptions: {
-      silenceDeprecations: ['legacy-js-api'],
-    },
-  }))
+  .enableSassLoader()
   .enablePostCssLoader()
   // uncomment if you use TypeScript
   //.enableTypeScriptLoader()
@@ -205,7 +200,7 @@ Encore
     options.hot = true;
     options.devMiddleware = { writeToDisk: true };
     options.watchFiles = [
-      './web/app/themes/theme/assets/**/*.scss',
+      './web/app/themes/theme/assets/**/*.css',
       './web/app/themes/theme/assets/**/*.js',
     ];
   })
