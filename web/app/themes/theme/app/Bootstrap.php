@@ -2,7 +2,6 @@
 
 namespace App;
 
-use App\App;
 use App\Controllers\ThemeController;
 use App\Controllers\TwigController;
 use App\Controllers\BlocksController;

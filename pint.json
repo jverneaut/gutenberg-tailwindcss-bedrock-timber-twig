@@ -1,0 +1,11 @@
+{
+  "preset": "psr12",
+  "rules": {
+    "array_syntax": { "syntax": "short" },
+    "no_unused_imports": true,
+    "concat_space": {
+      "spacing": "one"
+    }
+  },
+  "exclude": ["var", "vendor", "node_modules", "web/wp", "web/app/languages"]
+}

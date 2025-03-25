@@ -60,7 +60,8 @@
   },
   "require-dev": {
     "squizlabs/php_codesniffer": "^3.7.1",
-    "roave/security-advisories": "dev-latest"
+    "roave/security-advisories": "dev-latest",
+    "laravel/pint": "^1.21"
   },
   "config": {
     "optimize-autoloader": true,
@@ -90,7 +91,8 @@
     "test": [
       "phpcs"
     ],
-    "create-block": "scripts/create-block.sh"
+    "create-block": "scripts/create-block.sh",
+    "format": "pint"
   },
   "autoload": {
     "psr-4": {
