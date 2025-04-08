@@ -1,5 +1,5 @@
-module.exports = {
+export default {
   semi: true,
   singleQuote: true,
-  plugins: ['prettier-plugin-twig-melody', 'prettier-plugin-tailwindcss'],
+  plugins: ['@zackad/prettier-plugin-twig', 'prettier-plugin-tailwindcss'],
 };

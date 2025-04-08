@@ -7,9 +7,9 @@
       "\tclassName=\"${3:$CLIPBOARD}\"",
       "\tvalue={attributes.${1:content}}",
       "\tonChange={(${1:content}) => setAttributes({${1:content}})}",
-      "/>"
+      "/>",
     ],
-    "scope": "javascript,typescript,javascriptreact"
+    "scope": "javascript,typescript,javascriptreact",
   },
 
   "Image Component": {
@@ -19,9 +19,9 @@
       "\tid={attributes.${1:image_id}}",
       "\tonSelect={(image) => setAttributes({ ${1:image_id}: image.id })}",
       "\tclassName=\"${2:$CLIPBOARD}\"",
-      "/>"
+      "/>",
     ],
-    "scope": "javascript,typescript,javascriptreact"
+    "scope": "javascript,typescript,javascriptreact",
   },
 
   "Link Component": {
@@ -38,8 +38,8 @@
       "\t}",
       "\tonTextChange={(${2:link_title}) => setAttributes({ ${2:link_title} })}",
       "\tclassName=\"${3:$CLIPBOARD}\"",
-      "/>"
+      "/>",
     ],
-    "scope": "javascript,typescript,javascriptreact"
-  }
+    "scope": "javascript,typescript,javascriptreact",
+  },
 }
