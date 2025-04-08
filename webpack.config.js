@@ -1,13 +1,11 @@
-require('dotenv').config();
+import 'dotenv/config';
 
-const Encore = require('@symfony/webpack-encore');
+import Encore from '@symfony/webpack-encore';
+import chokidar from 'chokidar';
+import CleanTerminalPlugin from 'clean-terminal-webpack-plugin';
 
-const chokidar = require('chokidar');
-const CleanTerminalPlugin = require('clean-terminal-webpack-plugin');
-
-const HTMLToGutenberg = require('@jverneaut/html-to-gutenberg').default;
-const GutenbergWebpackPlugin =
-  require('@jverneaut/gutenberg-webpack-plugin').default;
+import HTMLToGutenberg from '@jverneaut/html-to-gutenberg';
+import GutenbergWebpackPlugin from '@jverneaut/gutenberg-webpack-plugin';
 
 // Manually configure the runtime environment if not already configured yet by the "encore" command.
 // It's useful when you use tools that rely on webpack.config.js file.
@@ -35,7 +33,7 @@ Encore
     new HTMLToGutenberg({
       inputDirectory: './web/app/themes/theme/blocks',
       outputDirectory: './web/app/themes/theme/blocks/generated',
-    })
+    }),
   )
   .addPlugin(new GutenbergWebpackPlugin('./web/app/themes/theme/blocks'))
 
@@ -126,4 +124,4 @@ Encore
 // uncomment if you're having problems with a jQuery plugin
 //.autoProvidejQuery()
 
-module.exports = Encore.getWebpackConfig();
+export default Encore.getWebpackConfig();
