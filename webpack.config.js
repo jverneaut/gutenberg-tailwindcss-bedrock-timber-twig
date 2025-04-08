@@ -5,6 +5,7 @@ const Encore = require('@symfony/webpack-encore');
 const chokidar = require('chokidar');
 const CleanTerminalPlugin = require('clean-terminal-webpack-plugin');
 
+const HTMLToGutenberg = require('@jverneaut/html-to-gutenberg').default;
 const GutenbergWebpackPlugin =
   require('@jverneaut/gutenberg-webpack-plugin').default;
 
@@ -29,6 +30,13 @@ Encore
    * and one CSS file (e.g. app.css) if your JavaScript imports CSS.
    */
   .addEntry('app', './web/app/themes/theme/assets/js/app.js')
+
+  .addPlugin(
+    new HTMLToGutenberg({
+      inputDirectory: './web/app/themes/theme/blocks/html',
+      outputDirectory: './web/app/themes/theme/blocks/html/generated',
+    })
+  )
   .addPlugin(new GutenbergWebpackPlugin('./web/app/themes/theme/blocks'))
 
   // enables the Symfony UX Stimulus bridge (used in assets/bootstrap.js)

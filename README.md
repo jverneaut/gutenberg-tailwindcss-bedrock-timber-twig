@@ -10,6 +10,7 @@ It tries to provide a good starting point for agencies wanting to build the best
 - **TailwindCSS**: Includes TailwindCSS for styling the frontend and custom Gutenberg Blocks.
 - **Block Scaffolding Tool**: Provides a tool to easily scaffold new Gutenberg blocks.
 - **Twig Rendering**: Uses Twig templates to render Gutenberg blocks, allowing the use of templates, includes, etc.
+- **Supports HTML To Gutenberg**: This starter is setup with https://github.com/jverneaut/html-to-gutenberg, allowing the creation of Gutenberg Blocks using HTML inside `./web/app/themes/theme/blocks/html`.
 
 ## Getting Started
 
