@@ -33,8 +33,8 @@ Encore
 
   .addPlugin(
     new HTMLToGutenberg({
-      inputDirectory: './web/app/themes/theme/blocks/html',
-      outputDirectory: './web/app/themes/theme/blocks/html/generated',
+      inputDirectory: './web/app/themes/theme/blocks',
+      outputDirectory: './web/app/themes/theme/blocks/generated',
     })
   )
   .addPlugin(new GutenbergWebpackPlugin('./web/app/themes/theme/blocks'))
