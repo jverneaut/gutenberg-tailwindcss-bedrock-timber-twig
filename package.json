@@ -17,7 +17,7 @@
   "devDependencies": {
     "@babel/preset-react": "^7.26.3",
     "@jverneaut/gutenberg-webpack-plugin": "^1.0.0",
-    "@jverneaut/html-to-gutenberg": "^1.5.5",
+    "@jverneaut/html-to-gutenberg": "^1.5.6",
     "@symfony/webpack-encore": "^4.7.0",
     "@tailwindcss/postcss": "^4.0.15",
     "@zackad/prettier-plugin-twig": "^0.16.0",
