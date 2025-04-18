@@ -33,6 +33,7 @@ Encore
     new HTMLToGutenberg({
       inputDirectory: './web/app/themes/theme/blocks',
       outputDirectory: './web/app/themes/theme/blocks/generated',
+      removeDeletedBlocks: true,
     }),
   )
   .addPlugin(new GutenbergWebpackPlugin('./web/app/themes/theme/blocks'))
